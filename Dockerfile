@@ -6,6 +6,6 @@ ADD . /home/flaskuser
 
 WORKDIR /home/flaskuser
 
-RUN pip install -r requirements.txt
+RUN which python
 
-ENTRYPOINT python run.py
+RUN pip install -r requirements.txt

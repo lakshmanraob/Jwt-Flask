@@ -5,12 +5,14 @@ from passlib.hash import pbkdf2_sha256 as sha256
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required,
                                 get_jwt_identity, get_raw_jwt, decode_token)
 import datetime
+import os
 
 parser = reqparse.RequestParser()
 parser.add_argument('username', help='This field cannot be blank', required=True)
 parser.add_argument('password', help='This field cannot be blank', required=True)
 
-client = MongoClient('localhost:27017')
+# client = MongoClient('localhost:27017')
+client = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'])
 db = client.myDatabase
 
 ACCESS_EXPIRE = datetime.timedelta(minutes=5)
