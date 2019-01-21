@@ -12,7 +12,8 @@ parser.add_argument('username', help='This field cannot be blank', required=True
 parser.add_argument('password', help='This field cannot be blank', required=True)
 
 # client = MongoClient('localhost:27017')
-client = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'])
+print("MONGODB value here..",os.environ['MONGODB'])
+client = MongoClient(os.environ['MONGODB'])
 db = client.myDatabase
 
 ACCESS_EXPIRE = datetime.timedelta(minutes=5)
