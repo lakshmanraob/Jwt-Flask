@@ -18,6 +18,11 @@ ACCESS_EXPIRE = datetime.timedelta(minutes=5)
 REFRESH_EXPIRE = datetime.timedelta(days=1)
 
 
+class SampleEndpoint(Resource):
+    def get(self):
+        return {'message': 'Simple jwt-flsk endpoint with out docker'}
+
+
 class UserRegistration(Resource):
     def post(self):
         data = parser.parse_args()
